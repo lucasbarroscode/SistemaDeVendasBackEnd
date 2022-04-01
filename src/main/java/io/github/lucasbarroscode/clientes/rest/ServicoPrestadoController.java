@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.HttpStatus;
@@ -40,7 +42,7 @@ public class ServicoPrestadoController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ServicoPrestado salvar(@RequestBody ServicoPrestadoDTO dto){
+	public ServicoPrestado salvar(@RequestBody @Valid ServicoPrestadoDTO dto){
 		
 		LocalDate data = LocalDate.parse(dto.getData(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 		Integer idCliente = dto.getIdCliente();

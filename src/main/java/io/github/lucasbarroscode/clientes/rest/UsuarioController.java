@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UsuarioController {
 	
-	private UsuarioService service;
+	private final UsuarioService service;
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)

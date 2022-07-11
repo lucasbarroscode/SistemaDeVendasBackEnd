@@ -48,7 +48,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory().withClient("my-angular-map")
+		clients.inMemory().withClient("my-angular-app")
 			.secret("@321")
 			.scopes("read", "write")
 			.authorizedGrantTypes("password")

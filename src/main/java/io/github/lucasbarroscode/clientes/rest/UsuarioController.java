@@ -21,21 +21,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UsuarioController {
 	
-	//private final UsuarioService service;
-	private final UsuarioRepository repository;
+	private final UsuarioService service;
+	//private final UsuarioRepository repository;
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public void salvar(@RequestBody @Valid Usuario usuario) {
 		
-		repository.save(usuario);		
-//		try {
-//			
-//			service.salvar(usuario);	
-//		}catch (UsuarioCadastradoException e) {
-//			//verifica se tem erro na API
-//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-//		}
+		//repository.save(usuario);		
+		try {
+			
+			service.salvar(usuario);	
+		}catch (UsuarioCadastradoException e) {
+			//verifica se tem erro na API
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
 		
 	}
 
